@@ -1,7 +1,7 @@
 function chosen_column = assisted_human_player(grid, player, how_many_to_connect)
 
-    get_win = false(size(grid,2));
-    avoid_loss = false(size(grid,2));
+    get_win = false(1, size(grid,2));
+    avoid_loss = false(1, size(grid,2));
     for column = 1:size(grid,2)
         if ~isempty(find(grid(:,column)==0, 1))
             [chains_made, chains_blocked] = evaluate_play(make_play(grid,column,player),column,how_many_to_connect);

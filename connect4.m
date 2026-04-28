@@ -5,7 +5,7 @@ difficulty=1;
 
 if ~exist('players','var')
     players{1} = @assisted_human_player;
-    players{2} = @greedy_player;
+    players{2} = @random_player;
 end
 if ~exist('rows','var')
     rows = 6;

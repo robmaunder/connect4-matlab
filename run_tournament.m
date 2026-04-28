@@ -22,6 +22,7 @@ if ~exist('games_to_play','var')
 end
 
 wins = zeros(1,length(players));
+winner = zeros(1,length(players));
 
 for game_index = 1:games_to_play
     perm = randperm(length(players));

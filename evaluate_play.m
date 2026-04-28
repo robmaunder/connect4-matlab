@@ -70,11 +70,4 @@ for attempt_index = 1:attempt_count
             end
         end
     end
-
-
 end
-
-% print_grid(grid)
-% column_just_played
-% chains_made
-% chains_blocked
