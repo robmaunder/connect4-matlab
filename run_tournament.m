@@ -2,7 +2,7 @@ function run_tournament(players, rows, columns, how_many_to_connect, games_to_pl
 
 if ~exist('players','var')
     players{1} = @greedy_player;
-    players{2} = @not_so_greedy_player;
+    players{2} = @mcts_player;
 end
 if ~exist('rows','var')
     rows = 6;
@@ -17,11 +17,12 @@ if ~exist('games_to_play','var')
     games_to_play = 1000;
 end
 if ~exist('difficulty','var')
-    difficulty = 0;
+    difficulty = 1;
 end
 
 wins = zeros(1,length(players));
 winner = zeros(1,length(players));
+draws = 0;
 
 for game_index = 1:games_to_play
     perm = randperm(length(players));
@@ -32,12 +33,15 @@ for game_index = 1:games_to_play
     permuted_winner = zeros(1,length(players));
     if permuted_winner_index > 0
         permuted_winner(permuted_winner_index) = 1;
+        winner(perm) = permuted_winner;
+        wins = wins + winner
+        draws
+    else
+        wins
+        draws = draws+1
     end
-
-    winner(perm) = permuted_winner;
-
-    wins = wins + winner;
 end
 
 wins
+draws
     

@@ -2,7 +2,7 @@ function connect4(players, rows, columns, how_many_to_connect, difficulty)
 
 if ~exist('players','var')
     players{1} = @assisted_human_player;
-    players{2} = @not_so_greedy_player;
+    players{2} = @mcts_player;
 end
 if ~exist('rows','var')
     rows = 6;
@@ -14,7 +14,7 @@ if ~exist('how_many_to_connect','var')
     how_many_to_connect = 4;
 end
 if ~exist('difficulty','var')
-    difficulty = 0;
+    difficulty = 1;
 end
 
 [winner, grid] = run_game(players, rows, columns, how_many_to_connect, difficulty);
