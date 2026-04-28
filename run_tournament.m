@@ -1,7 +1,4 @@
-function run_tournament(players, rows, columns, how_many_to_connect, games_to_play)
-
-global difficulty
-difficulty=0;
+function run_tournament(players, rows, columns, how_many_to_connect, games_to_play, difficulty)
 
 if ~exist('players','var')
     players{1} = @greedy_player;
@@ -16,9 +13,11 @@ end
 if ~exist('how_many_to_connect','var')
     how_many_to_connect = 4;
 end
-
 if ~exist('games_to_play','var')
     games_to_play = 1000;
+end
+if ~exist('difficulty','var')
+    difficulty = 0;
 end
 
 wins = zeros(1,length(players));
@@ -28,7 +27,7 @@ for game_index = 1:games_to_play
     perm = randperm(length(players));
     permuted_players = players(perm);
 
-    [permuted_winner_index, grid] = run_game(permuted_players, rows, columns, how_many_to_connect);
+    [permuted_winner_index, grid] = run_game(permuted_players, rows, columns, how_many_to_connect, difficulty);
 
     permuted_winner = zeros(1,length(players));
     if permuted_winner_index > 0

@@ -1,4 +1,4 @@
-function chosen_column = human_player(grid, player, how_many_to_connect)
+function chosen_column = human_player(grid, player, how_many_to_connect, difficulty)
     print_grid(grid);
     print_indices(grid);
     got_good_entry = false;

@@ -1,4 +1,4 @@
-function preferred_columns = greedy_player(grid, player, how_many_to_connect)
+function preferred_columns = greedy_player(grid, player, how_many_to_connect, difficulty)
 
 good_columns = 0;
 

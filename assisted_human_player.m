@@ -1,4 +1,4 @@
-function chosen_column = assisted_human_player(grid, player, how_many_to_connect)
+function chosen_column = assisted_human_player(grid, player, how_many_to_connect, difficulty)
 
     get_win = false(1, size(grid,2));
     avoid_loss = false(1, size(grid,2));
